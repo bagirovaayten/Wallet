@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.HistoryFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/darkerGray"
+            android:elevation="0dp"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_scrollFlags="enterAlways|snap"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
+            app:titleTextColor="@color/darkerGray">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/roboto_bold"
+                android:includeFontPadding="false"
+                android:text="History"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/mainLinear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBar">
+
+        <LinearLayout
+            android:id="@+id/startDateLinear"
+            android:weightSum="1"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_weight="0.2"
+                android:id="@+id/startDateImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_today_dark" />
+
+            <TextView
+                android:layout_marginTop="3dp"
+                android:id="@+id/startDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:fontFamily="@font/roboto_regular"
+                android:includeFontPadding="false"
+                android:text="2020-11-01"
+                android:textColor="@color/darkerGray"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_marginEnd="16dp"
+                android:layout_weight="0.1"
+                android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/finishDateLinear"
+            android:weightSum="1"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_weight="0.2"
+            android:id="@+id/finishDateImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_today_dark" />
+
+        <TextView
+            android:layout_marginTop="3dp"
+            android:id="@+id/finishDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:fontFamily="@font/roboto_regular"
+            android:includeFontPadding="false"
+            android:text="2020-12-01"
+            android:textColor="@color/darkerGray"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_weight="0.1"
+            android:src="@drawable/ic_baseline_arrow_drop_down_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/money_list"
+        android:nestedScrollingEnabled="false"
+        android:id="@+id/historyRecycler"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:clipToPadding="false"
+        android:paddingBottom="36dp"
+        android:paddingTop="20dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainLinear"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
